@@ -20,10 +20,6 @@ dicRow = {}  # list of data row
 strFileName = 'CDInventory.txt'  # data storage file
 objFile = None  # file object
 
-dicRow1 = {'ID': 1, 'Title': 'follklore', 'Artist': 'taylor swift'}
-# dicRow2= {'ID': 2, 'Title': 'solitude', 'Artist': 'tori kelly'}
-lstTbl.append(dicRow1)
-# lstTbl.append(dicRow2)
 
 # -- PROCESSING -- #
 class DataProcessor:
