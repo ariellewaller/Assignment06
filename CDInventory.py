@@ -9,6 +9,7 @@
 # AWaller, 2020-August-19, Added write_file method to class FileProcessor. 
 # AWaller, 2020-August-19, Added try-except error handling to read_file method in FileProcessor.
 
+# Link to Github: https://github.com/ariellewaller/Assignment06
 
 #------------------------------------------#
 
