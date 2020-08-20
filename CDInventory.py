@@ -3,6 +3,13 @@
 # Desc: Working with classes and functions.
 # Change Log: (Who, When, What)
 # AWaller, 2020-August-19, Created File
+# AWaller, 2020-August-19, Added cd_information function to class IO. 
+# AWaller, 2020-August-19, Added add_cd function to class DataProcessor. 
+# AWaller, 2020-August-19, Added delete_inventory method to class DataProcessor. 
+# AWaller, 2020-August-19, Added write_file method to class FileProcessor. 
+# AWaller, 2020-August-19, Added try-except error handling to read_file method in FileProcessor.
+
+
 #------------------------------------------#
 
 # -- DATA -- #
@@ -34,14 +41,13 @@ class DataProcessor:
             the data during runtime.
 
         Returns:
-            new_table: 2D data structure (list of dicts) that holds the data
-            during runtime.
+            table: 2D data structure (list of dicts) that holds the data
+            during runtime. Modified to include the new CD. 
 
         """
 
         # 3.3.2 Add item to the table
         intID = int(strID)
-        print(strID)
         dicRow = {'ID': intID, 'Title': strTitle, 'Artist': stArtist}
         table.append(dicRow)
         return table 
@@ -53,11 +59,14 @@ class DataProcessor:
 
 
         Args:
+            intIDDel: the ID integer of the CD to be deleted 
             table (list of dict): 2D data structure (list of dicts) that holds
             the data during runtime.
 
         Returns:
-            None.
+            table (list of dict): 2D data structure (list of dicts) that holds
+            the data during runtime. If intIDDel is found, this list is edited
+            to remove the applicable dictionary. 
 
         """
         # 3.5.2 search thru table and delete CD
@@ -123,6 +132,8 @@ class FileProcessor:
             file_name (string): name of file used to write the data to
             table (list of dict): 2D data structure (list of dicts) that holds
             the data during runtime
+            table (list of dict): 2D data structure (list of dicts) that holds
+            the data during runtime.
         Returns:
             None.
         
@@ -204,22 +215,23 @@ class IO:
 
     @staticmethod
     def cd_information():
-        """Gather CD information to add CD to the current inventory table. 
+        """Collect user input for CD information to add CD to the current
+        inventory table. 
         
         Args:
             None. 
 
          Returns:
-             strID: string that holds the CD ID.
-             strTitle: string that holds the CD title.
-             strArtist: string that holds the CD artist.
+             strID: string that holds the new CD ID.
+             strTitle: string that holds the new CD title.
+             strArtist: string that holds the new CD artist.
             """
-            # Prompt user for CD information. 
+        # Prompt user for CD information. 
         strID = input('Enter ID: ').strip()
         strTitle = input('What is the CD\'s title? ').strip()
         stArtist = input('What is the Artist\'s name? ').strip()
+        # Return a tuple of the collected values. 
         return strID, strTitle, stArtist
-
 
 
 # # 1. When program starts, read in the currently saved Inventory
